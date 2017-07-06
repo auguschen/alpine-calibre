@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.6
 
 MAINTAINER Chen Augus <tianhao.chen@gmail.com>
 
