@@ -2,6 +2,20 @@ FROM alpine:3.6
 
 MAINTAINER Chen Augus <tianhao.chen@gmail.com>
 
-RUN apk update && apk add python openssl ca-certificates && mkdir -p /opt/calibre && wget -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+RUN apk update && \
+    apk add git python2 py2-pip && \
+    mkdir -p /opt/calibre /opt/calibre-library && \
+    cd /opt/calibre && \
+    git clone https://github.com/janeczku/calibre-web.git && \
+    cd /opt/calibre/calibre-web && \
+    pip install -r requirements.txt &&
+
+VOLUME ["/opt/calibre-library"]
+
+COPY metadata.db /opt/calibre-library
 
 EXPOSE 8083
+
+WORKDIR /opt/calibre/calibre-web
+
+CMD python cps.py
