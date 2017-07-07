@@ -8,7 +8,7 @@ RUN apk update && \
     cd /opt/calibre && \
     git clone https://github.com/janeczku/calibre-web.git && \
     cd /opt/calibre/calibre-web && \
-    pip install -r requirements.txt &&
+    pip install -r requirements.txt
 
 VOLUME ["/opt/calibre-library"]
 
