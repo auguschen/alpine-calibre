@@ -3,7 +3,7 @@ FROM alpine:3.6
 MAINTAINER Chen Augus <tianhao.chen@gmail.com>
 
 RUN apk update && \
-    apk add git python2 py2-pip && \
+    apk add git python2 py2-pip imagemagick && \
     mkdir -p /opt/calibre /opt/calibre-library && \
     cd /opt/calibre && \
     git clone https://github.com/janeczku/calibre-web.git && \
