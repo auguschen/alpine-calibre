@@ -12,7 +12,7 @@ RUN apk update && \
 
 VOLUME ["/opt/calibre-library"]
 
-COPY metadata.db /opt/calibre-library
+COPY calibre-library /opt/calibre-library
 
 EXPOSE 8083
 
