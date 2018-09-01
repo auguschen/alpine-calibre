@@ -11,3 +11,9 @@ calibre-web based on alpine
 ## defined volumes
 
 - /opt/calibre-library
+
+## expose port
+
+- 80
+- 443
+- 8083
