@@ -6,7 +6,8 @@ RUN apk --no-cache add git python2 py2-pip imagemagick && \
     mkdir -p /opt/calibre /opt/calibre-library && cd /opt/calibre && \
     git clone -b master https://github.com/janeczku/calibre-web.git && \
     cd /opt/calibre/calibre-web && \
-    pip install --target vendor -r requirements.txt
+    pip install --target vendor -r requirements.txt && \
+    pip install --target vendor -r optional-requirements.txt
 
 COPY calibre-library /opt/calibre-library
 
