@@ -5,7 +5,7 @@ LABEL maintainer="Chen Augus <tianhao.chen@gmail.com>"
 RUN apk --no-cache add git nginx python2 py2-pip imagemagick && \
     mkdir -p /opt/calibre /opt/calibre-library && cd /opt/calibre && \
     git clone -b master https://github.com/janeczku/calibre-web.git && \
-    cd /opt/calibre/calibre-web && \
+    cd /opt/calibre/calibre-web && mkdir -p /run/nginx && \
     pip install --target vendor -r requirements.txt 
     # no gcc right now. add this in next release.
     # && \
