@@ -2,14 +2,12 @@ FROM alpine:latest
 
 LABEL maintainer="Chen Augus <tianhao.chen@gmail.com>"
 
-RUN apk --no-cache add git nginx python2 py2-pip imagemagick && \
+RUN apk --no-cache add git nginx python2 py2-pip py2-lxml imagemagick6 && \
     mkdir -p /opt/calibre /opt/calibre-library && cd /opt/calibre && \
     git clone -b master https://github.com/janeczku/calibre-web.git && \
     cd /opt/calibre/calibre-web && mkdir -p /run/nginx && \
+    pip install --upgrade pip && \
     pip install --target vendor -r requirements.txt 
-    # no gcc right now. add this in next release.
-    # && \
-    # pip install --target vendor -r optional-requirements.txt
 
 COPY calibre-library /opt/calibre-library
 COPY scripts/entrypoint.sh /opt/calibre/calibre-web/entrypoint.sh
